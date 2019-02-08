@@ -1,6 +1,3 @@
-from Usage import usage
-
-
 def cut(args):
     """remove sections from each line of files"""
 

@@ -1,6 +1,3 @@
-from Usage import usage
-
-
 def sort(args):
     """sort lines of text files"""
     for file in args:

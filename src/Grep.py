@@ -1,6 +1,3 @@
-from Usage import usage
-
-
 def grep(args):
 
     if args[0] == '-v':

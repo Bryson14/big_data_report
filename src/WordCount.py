@@ -1,6 +1,3 @@
-from Usage import usage
-
-
 def wc(files: list):
     print("")
     file_status("file name", "lines", "words", "bytes")

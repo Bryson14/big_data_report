@@ -1,6 +1,3 @@
-from Usage import usage
-
-
 def cat(args):
     print("")
     try:
