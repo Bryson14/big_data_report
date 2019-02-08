@@ -1,6 +1,24 @@
 import sys
 from Report import Report
 
+if __name__ == "__main__":
+
+    # too little arguments
+    if len(sys.argv) < 2:
+        print("Usage: src\main.py DATA_DIRECTORY")
+        sys.exit(1)
+
+    # no files were given to an attempted function
+    elif len(sys.argv) == 2:
+        sys.exit(1)
+
+    # initializes the correct function
+    elif str(sys.argv[1]).lower() in functions:
+        pass
+
+    # unidentified function call
+    else:
+        sys.exit(1)
 
 # Convert `area_titles.csv` into a dictionary
 #############################################
