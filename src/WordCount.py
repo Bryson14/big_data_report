@@ -48,7 +48,7 @@ def wc(files: list):
             file_status(file, lines, words_linux, byts)
 
     except FileNotFoundError:
-        usage("\n    Given file not found.", "wc")
+        print("Given file not found.")
 
 
 def file_status(file_name: str, lines: int, words: int, byts: int):

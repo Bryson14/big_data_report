@@ -11,7 +11,7 @@ def cut(args):
             for i in range(len(iden)):
                 iden[i] = int(iden[i])
         except ValueError:
-            usage("Indexes must be positive integers.", "cut")
+            print("Indexes must be positive integers.")
 
         # print multiple specific columns
         if len(iden) > 1:
@@ -44,7 +44,7 @@ def print_cut(file, column):
                 for line in lines:
                     print(line[column])
             except IndexError:
-                usage("The index you attempted doesn't exist in this file.", "cut")
+                print("The index you attempted doesn't exist in this file.")
 
         # prints multiple columns
         else:
@@ -56,7 +56,7 @@ def print_cut(file, column):
                 print("")
 
     except FileNotFoundError:
-        usage("File not found", "cut")
+        print("Given file not found.")
 
 
 def paste(args):
@@ -75,7 +75,7 @@ def paste(args):
             data.append(lines)
 
         except FileNotFoundError:
-            usage("File not found.", "paste")
+            print("Given file not found.")
 
     # find the longest file
     max = 0

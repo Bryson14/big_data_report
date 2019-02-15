@@ -7,7 +7,7 @@ def cat(args):
                 for line in data:
                         print(line[:-1 or None])
     except FileNotFoundError:
-        usage("\n    Given file not found.", "cat")
+        print("Given file not found.")
 
 
 def tac(args):
@@ -20,5 +20,5 @@ def tac(args):
                     line = data[i]
                     print(line[:-1 or None])
     except FileNotFoundError:
-        usage("\n    Given file not found.", "tac")
+        print("Given file not found.")
 
