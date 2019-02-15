@@ -1,5 +1,5 @@
 import sys
-from Report import Report
+from Partial import head
 
 if __name__ == "__main__":
 
@@ -10,12 +10,16 @@ if __name__ == "__main__":
 
     # initializes the program
     elif len(sys.argv) == 2:
+        try:
+            head(sys.argv[1:])
 
+        except FileNotFoundError:
+            print("File not found.")
         sys.exit(1)
 
     # unidentified function call
     else:
-        print("Usage: src\main.py DATA_DIRECTORY")
+        print("Too many arguments given\nUsage: src\main.py DATA_DIRECTORY")
         sys.exit(1)
 
 # Convert `area_titles.csv` into a dictionary
