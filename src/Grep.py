@@ -1,9 +1,36 @@
 def grep(args):
 
     if args[0] == '-v':
-        exclude(args[2:], args[1])
+        return exclude(args[2:], args[1])
+
+    elif args[0] == '-s':
+        args = args[1:]
+        find = []
+        avoid = []
+        i = 0
+        while args[i] != '-':
+            find.append(args[i])
+            i += 1
+        i += 1
+        avoid = args[i:-1]
+        return special(args[-1], find, avoid)
+
     else:
-        include(args[1:], args[0])
+        return include(args[1:], args[0])
+
+
+def special(file: str, iden: list, avoid: list):
+    lst = []
+    try:
+        for line in open(file):
+            line = line.strip()
+            if iden[0] in line and avoid[0] not in line:
+                lst.append(line)
+
+    except FileNotFoundError:
+        print("Given file not found.")
+
+    return lst
 
 
 def include(files: list, iden: str):
