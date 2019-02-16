@@ -1,0 +1,38 @@
+
+[============]
+[Final Report]
+[============]
+
+Statistics over all industries in 2017:
+=========================================================
+Number of FIPS areas in report       4
+
+Gross annual wages                   $24,668,830,510
+Area with maximum annual wages       New Castle County, Delaware
+Maximum reported wage                $18,099,647,144
+
+Total number of establishments       31,962
+Area with most establishments        New Castle County, Delaware
+Maximum # of establishments          19,779
+
+Gross annual employment level        441,874
+Area with maximum employment         New Castle County, Delaware
+Maximum reported employment level    288,048
+
+
+Statistics over the software publishing industry in 2017:
+=========================================================
+Number of FIPS areas in report       0
+
+Gross annual wages                   $0
+Area with maximum annual wages       
+Maximum reported wage                $0
+
+Total number of establishments       0
+Area with most establishments        
+Maximum # of establishments          0
+
+Gross annual employment level        0
+Area with maximum employment         
+Maximum reported employment level    0
+

@@ -1,0 +1,38 @@
+
+[============]
+[Final Report]
+[============]
+
+Statistics over all industries in 2017:
+=========================================================
+Number of FIPS areas in report       0
+
+Gross annual wages                   $0
+Area with maximum annual wages       
+Maximum reported wage                $0
+
+Total number of establishments       0
+Area with most establishments        
+Maximum # of establishments          0
+
+Gross annual employment level        0
+Area with maximum employment         
+Maximum reported employment level    0
+
+
+Statistics over the software publishing industry in 2017:
+=========================================================
+Number of FIPS areas in report       61
+
+Gross annual wages                   $1,801,701,600
+Area with maximum annual wages       Wake County, North Carolina
+Maximum reported wage                $1,086,347,756
+
+Total number of establishments       1,283
+Area with most establishments        Unknown Or Undefined, North Carolina
+Maximum # of establishments          378
+
+Gross annual employment level        15,438
+Area with maximum employment         Wake County, North Carolina
+Maximum reported employment level    9,188
+
