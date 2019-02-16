@@ -7,41 +7,34 @@ def grep(args):
 
 
 def include(files: list, iden: str):
-    print("")
+    lst = []
     for file in files:
         try:
-            with open(file) as data:
-                lines = data.readlines()
-
-            # remove \n left over from .readlines()
-            for i in range(len(lines)):
-                lines[i] = lines[i][:-1]
-
-            for line in lines:
-                if line.find(iden) != -1:
-                    print(line)
+            for line in open(file):
+                line = line.strip()
+                if iden in line:
+                    lst.append(line)
 
         except FileNotFoundError:
             print("Given file not found.")
+
+    return lst
 
 
 def exclude(files: list, iden: str):
-    print("")
+    lst = []
     for file in files:
         try:
-            with open(file) as data:
-                lines = data.readlines()
-
-            # remove \n left over from .readlines()
-            for i in range(len(lines)):
-                lines[i] = lines[i][:-1]
-
-            for line in lines:
-                if line.find(iden) == -1:
-                    print(line)
+            for line in open(file):
+                line = line.strip()
+                if iden not in line:
+                    lst.append(line)
 
         except FileNotFoundError:
             print("Given file not found.")
+
+    return lst
+
 
 def startgrep(args):
 
@@ -52,41 +45,33 @@ def startgrep(args):
 
 
 def includestart(files: list, iden: str):
-    print("")
+    lst = []
     for file in files:
         try:
-            with open(file) as data:
-                lines = data.readlines()
-
-            # remove \n left over from .readlines()
-            for i in range(len(lines)):
-                lines[i] = lines[i][:-1]
-
-            for line in lines:
+            for line in open(file):
+                line = line.strip()
                 if line.startswith(iden):
-                    print(line)
+                    lst.append(line)
 
         except FileNotFoundError:
             print("file not found. ")
 
+    return lst
+
 
 def excludestart(files: list, iden: str):
-    print("")
+    lst = []
     for file in files:
         try:
-            with open(file) as data:
-                lines = data.readlines()
-
-            # remove \n left over from .readlines()
-            for i in range(len(lines)):
-                lines[i] = lines[i][:-1]
-
-            for line in lines:
-                if line.startswith(iden):
-                    print(line)
+            for line in open(file):
+                line = line.strip()
+                if not line.startswith(iden):
+                    lst.append(line)
 
         except FileNotFoundError:
             print("File not found.")
+
+    return lst
 
 
 def endgrep(args):
@@ -97,39 +82,30 @@ def endgrep(args):
 
 
 def includeend(files: list, iden: str):
-    print("")
+    lst = []
     for file in files:
         try:
-            with open(file) as data:
-                lines = data.readlines()
-
-            # remove \n left over from .readlines()
-            for i in range(len(lines)):
-                lines[i] = lines[i][:-1]
-
-            for line in lines:
+            for line in open(file):
+                line = line.strip()
                 if line.endswith(iden):
-                    print(line)
+                    lst.append(line)
 
         except FileNotFoundError:
             print("file not found. ")
 
+    return lst
+
 
 def excludeend(files: list, iden: str):
-    print("")
+    lst = []
     for file in files:
         try:
-            with open(file) as data:
-                lines = data.readlines()
-
-            # remove \n left over from .readlines()
-            for i in range(len(lines)):
-                lines[i] = lines[i][:-1]
-
-            for line in lines:
-                if line.endswith(iden):
-                    print(line)
+            for line in open(file):
+                line = line.strip()
+                if not line.endswith(iden):
+                    lst.append(line)
 
         except FileNotFoundError:
             print("File not found.")
 
+    return lst
