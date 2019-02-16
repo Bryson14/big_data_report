@@ -5,18 +5,21 @@ from Report import Report
 
 
 def dict_area_titles(d) -> dict:
-    print("d: ", d)
     fil = d + '\\area_titles.csv'
+    area_titles = {}
+    ut_list = grep(["-s", "Utah", "-", "000", fil])
+    for pair in ut_list:
+        pair = pair.split('","')
+        area_titles[pair[0].strip('"')] = pair[1].strip('"')
 
-    codes = {}
+    return area_titles
 
+
+def find_report_data(d: str, area_dict: dict):
     myfil = d + r'\2017.annual.singlefile.csv'
     myfil = r'C:\Users\Bryson M\Desktop\Methods in CS\Assn2-Text_Tools\data\people.csv'
-    results = cut(['-f',0,1,2,myfil])
+    results = cut(['-f', 0, 1, 2, myfil])
     print(results)
-
-
-def find_report_data(d: str):
     pass
 
 
@@ -28,7 +31,8 @@ def main():
 
     # initializes the program
     elif len(sys.argv) == 2:
-        dict_area_titles(sys.argv[1])
+        area_dict = dict_area_titles(sys.argv[1])
+        find_report_data(sys.argv[1], area_dict)
 
     # unidentified function call
     else:
