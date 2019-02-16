@@ -1,1 +1,3 @@
-It manupulates big data
+This Project manipulates the data that comes from the US government about its industries and  financials across the country. 
+To use, type * src\main.py [DIRECTORY], the direectory must contain two files: 1) the data file 2017.annual.single.csv and  2) an directory called area_titles.csv that  gives the correct FIPS codes for that region of the country
+It incredible that large data sets like the full USA data set of 3 million + lines of code can be read and processed in only a matter of seconds. 
