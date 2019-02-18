@@ -32,9 +32,9 @@ def exclude(strng: str, iden: list):
 
 def endgrep(args):
     if args[0] == '-v':
-        return(excludeend(args[2], args[1]))
+        return excludeend(args[2], args[1])
     else:
-        return(includeend(args[1], args[0]))
+        return includeend(args[1], args[0])
 
 
 def includeend(files: list, iden: str):
@@ -64,5 +64,3 @@ def excludeend(file: str, iden: str):
 
     except FileNotFoundError:
         print("File not found.")
-
-

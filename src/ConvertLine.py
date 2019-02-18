@@ -1,7 +1,8 @@
 # this works when on each line there is a key, value pair
+
+
 def line_to_dict(string):
     dic = {}
-    printed = False
     lst = string.split('\n')
 
     try:

@@ -6,52 +6,66 @@ from ConvertLine import line_to_dict
 
 def dict_area_titles(d):
     fil = d + '\\area_titles.csv'
-    nozeros = endgrep(["-v", '000"', fil])
-    noletters = grep(["-v", 'C', nozeros])
-    noletters2 = grep(["-v", 'S', noletters])
-    noletters3 = grep(["-v", 'a', noletters2])
-    area_titles = line_to_dict(noletters3)
+    no000 = endgrep(["-v", '000"', fil])
+    noC = grep(["-v", 'C', no000])
+    noS = grep(["-v", 'S', noC])
+    noa = grep(["-v", 'a', noS])
+    area_titles = line_to_dict(noa)
     return area_titles
 
 
 def find_report_data(d: str, area_dict: dict):
     rpt = Report()
     myfil = d + '\\2017.annual.singlefile.csv'
-
+    first_line = True
     for line in open(myfil):
-        line_lst = line.split(',')
-        if line_lst[0] in area_dict:
+        if not first_line:
+            line = line.split(',')
+            own_code = line[1]
+            industry_code = line[2]
+            estab = int(line[8])
+            empl = int(line[9])
+            wages = int(line[10])
+            key = str(line[0]).strip('"')
+            if key in area_dict:
+                # print(own_code, industry_code, estab, empl, wages)
 
-            # all industry info
-            if line_lst[1] == "0" and line_lst[2] == "10":
+                # all industry info
+                if own_code == '"0"' and industry_code == '"10"':
+                    rpt.all.num_areas += 1
 
-                rpt.all.total_estab += line_lst[8]
-                if line_lst[8] > rpt.all.max_estab[1]:
-                    rpt.all.max_estab = (area_dict[line_lst[0]], line_lst[8])
+                    rpt.all.total_estab += estab
+                    if estab > rpt.all.max_estab[1]:
+                        rpt.all.max_estab = (area_dict[key], estab)
 
-                rpt.all.total_empl += line_lst[9]
-                if line_lst[9] > rpt.all.max_empl[1]:
-                    rpt.all.max_empl = (area_dict[line_lst[0]], line_lst[9])
+                    rpt.all.total_empl += empl
+                    if empl > rpt.all.max_empl[1]:
+                        rpt.all.max_empl = (area_dict[key], empl)
 
-                rpt.all.gross_annual_wages += line_lst[10]
-                if line_lst[10] > rpt.all.max_annual_wage[1]:
-                    rpt.all.max_annual_wage = (area_dict[line_lst[0]], line_lst[10])
+                    rpt.all.gross_annual_wages += wages
+                    if wages > rpt.all.max_annual_wage[1]:
+                        rpt.all.max_annual_wage = (area_dict[key], wages)
 
-            # software sector info
-            if line_lst[1] == "0" and line_lst[2] == "5112":
+                # software sector info
+                if own_code == '"5"' and industry_code == '"5112"':
+                    rpt.soft.num_areas += 1
 
-                rpt.soft.total_estab += line_lst[8]
-                if line_lst[8] > rpt.soft.max_estab[1]:
-                    rpt.soft.max_estab = (area_dict[line_lst[0]], line_lst[8])
+                    rpt.soft.total_estab += estab
+                    if estab > rpt.soft.max_estab[1]:
+                        rpt.soft.max_estab = (area_dict[key], estab)
 
-                rpt.soft.total_empl += line_lst[9]
-                if line_lst[9] > rpt.soft.max_empl[1]:
-                    rpt.soft.max_empl = (area_dict[line_lst[0]], line_lst[9])
+                    rpt.soft.total_empl += empl
+                    if empl > rpt.soft.max_empl[1]:
+                        rpt.soft.max_empl = (area_dict[key], empl)
 
-                rpt.soft.gross_annual_wages += line_lst[10]
-                if line_lst[10] > rpt.soft.max_annual_wage[1]:
-                    rpt.soft.max_annual_wage = (area_dict[line_lst[0]], line_lst[10])
+                    rpt.soft.gross_annual_wages += wages
+                    if wages > rpt.soft.max_annual_wage[1]:
+                        rpt.soft.max_annual_wage = (area_dict[key], wages)
+        first_line = False
     print(rpt)
+
+
+
 
 def main():
     # too little arguments
