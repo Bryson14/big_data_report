@@ -35,7 +35,6 @@ class Report():
         self.all  = IndustryDataSet()
         self.soft = IndustryDataSet()
 
-
     def __str__(self):
         """
         Python's ToString method
@@ -78,7 +77,6 @@ Gross annual employment level        {self.soft.total_empl:,}
 Area with maximum employment         {self.soft.max_empl[0]}
 Maximum reported employment level    {self.soft.max_empl[1]:,}
 """
-
 
     def __repr__(self):
         """
