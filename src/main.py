@@ -27,6 +27,7 @@ def find_report_data(d: str, area_dict: dict):
             empl = int(line[9])
             wages = int(line[10])
             key = str(line[0]).strip('"')
+            # print(key in area_dict)
             if key in area_dict:
                 # print(own_code, industry_code, estab, empl, wages)
 
@@ -62,9 +63,8 @@ def find_report_data(d: str, area_dict: dict):
                     if wages > rpt.soft.max_annual_wage[1]:
                         rpt.soft.max_annual_wage = (area_dict[key], wages)
         first_line = False
+
     print(rpt)
-
-
 
 
 def main():
