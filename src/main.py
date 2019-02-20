@@ -21,15 +21,14 @@ def find_report_data(d: str, area_dict: dict):
     for line in open(myfil):
         if not first_line:
             line = line.split(',')
-            own_code = line[1]
-            industry_code = line[2]
-            estab = int(line[8])
-            empl = int(line[9])
-            wages = int(line[10])
             key = str(line[0]).strip('"')
             # print(key in area_dict)
             if key in area_dict:
-                # print(own_code, industry_code, estab, empl, wages)
+                own_code = line[1]
+                industry_code = line[2]
+                estab = int(line[8])
+                empl = int(line[9])
+                wages = int(line[10])
 
                 # all industry info
                 if own_code == '"0"' and industry_code == '"10"':

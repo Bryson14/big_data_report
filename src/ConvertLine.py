@@ -8,6 +8,7 @@ def line_to_dict(string):
     try:
         for line in lst:
             line = line.split(',')
+            # print(line[1], line[2] or None)
             key = str(line[0]).strip('"')
             area = str(line[1]).strip('"')
             # area = area + ", " + str(line[2]).strip('"')
@@ -15,5 +16,5 @@ def line_to_dict(string):
 
     except IndexError:
         pass
-
+    # print(dic)
     return dic
