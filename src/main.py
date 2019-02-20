@@ -6,6 +6,7 @@ from ConvertLine import line_to_dict
 
 def dict_area_titles(d):
     fil = d + '\\area_titles.csv'
+
     no000 = endgrep(["-v", '000"', fil])
     noC = grep(["-v", 'C', no000])
     noS = grep(["-v", 'S', noC])
@@ -22,7 +23,6 @@ def find_report_data(d: str, area_dict: dict):
         if not first_line:
             line = line.split(',')
             key = str(line[0]).strip('"')
-            # print(key in area_dict)
             if key in area_dict:
                 own_code = line[1]
                 industry_code = line[2]
